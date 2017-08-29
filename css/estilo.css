@@ -1,0 +1,38 @@
+/* Configurações gerais dos elementos */
+html, body{
+	margin:0;
+	border:0;
+	padding:0;
+}
+
+div#mapa{
+	box-sizing: border-box;
+	width:100%;
+	height: 600px;
+	position: absolute;
+	/*border:1px solid black;*/
+	
+	
+}
+
+div.barra-float{
+	position: absolute;
+}
+
+
+
+/* Classes auxiliares */
+.float-right{
+	float: right;
+}
+
+.float-left{
+	float: left;
+}
+
+
+
+
+.infoBox { background-color: #FFF; width: 300px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; border: 2px solid #3fa7d8; border-radius: 3px; margin-top: 10px }
+.infoBox p { padding: 0 15px }
+.infoBox:before { border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #3fa7d8; top: -10px; content: ""; height: 0; position: absolute; width: 0; left: 138px }
