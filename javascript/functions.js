@@ -11,6 +11,7 @@ var tipoMapa = {
 $(document).ready(function(){
 
 	//Iniciando o mapa via API
+	//Alterar para iniciar no ponto pelo GPS
 	var latlng = new google.maps.LatLng(-20.300769, -40.291355);
 
 	var preferencias = {
@@ -37,7 +38,7 @@ $(document).ready(function(){
 
 	
 	//Verificando cookie e modal de abertura
-	//hello();
+	hello();
 
 
 	// Preenchendo com os pontnos existente no banco de dados
@@ -71,10 +72,10 @@ $(document).ready(function(){
 	});
  
 	$("#txtPesquisa").keydown(function(e){
-		if(e.keyCode == 13){
+		if(e.keyCode == 13){ //Enter
 			buscarPonto($("#txtPesquisa").val(), map);
-		
-}	});
+		}	
+	});
 
 	$(".opt-mapa").click(function(e){
 		e.preventDefault();
@@ -85,7 +86,8 @@ $(document).ready(function(){
 });
 
 function buscarPonto(nome, mapa){
-	var aux;
+	
+	//Dar foco no ponto
 	//mapa.panTo(new google.maps.LatLng(-20.300769, -40.291355));
 
 	if(nome.lenght = 0) return;
@@ -117,8 +119,10 @@ function abrirModalDetalhe(codLocal){
 		//$("#txtConstrutor").hide();
 		
 		$("#myModal").modal();
+
 	}).fail(function(error){
 		alert("Erro na comunicação. Verifique os detalhes no log do navegador.");
+		console.log(error);
 	})
 }
 
@@ -148,7 +152,7 @@ function hello(){
 	            $("#modalInit").modal();      
 	               
 	                var date = new Date(); 
-	                var tempo = 1; // minutos 
+	                var tempo = 1; // minutos - definido no painel de controle
 	                date.setTime(date.getTime() + (tempo * 60 * 1000));
 	                $.cookie('ckpontosvix', '1', { expires: date });
             }, 1000);
